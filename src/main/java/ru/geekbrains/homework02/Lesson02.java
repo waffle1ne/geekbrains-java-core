@@ -1,6 +1,7 @@
 package ru.geekbrains.homework02;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Lesson02 {
 
@@ -59,6 +60,16 @@ public class Lesson02 {
 			tmp = array[i];
 			array[i] = array[j];
 			array[j--] = tmp;
+		}
+	}
+
+	public void scrambleArray(int[] array) {
+		Random random = new Random();
+		for (int i = 0; i < array.length; i++) {
+			int tmp_index = random.nextInt(array.length);
+			int tmp = array[i];
+			array[i] = array[tmp_index];
+			array[tmp_index] = tmp;
 		}
 	}
 }
