@@ -6,61 +6,60 @@ public class Group {
 
 	private String name;
 	private Employee[] employees;
-	private int MAX = 2;
+	private static int MAX = 10;
+
+	public Group() {
+	}
 
 	public Group(String name) {
 		this.name = name;
+		this.employees = new Employee[MAX];
 	}
 
-	public Group(String name, Employee[] employees) {
-		this.name = name;
-		if (employees.length > this.MAX) {
-			System.out.println("В одном отделе может быть максимум 10 сотрудников");
+	private void validateEmployees(Employee[] employees) {
+		int count = 0;
+		for (Employee employee : this.employees) {
+			if (employee == null)
+				count++;
 		}
-		this.employees = employees;
+		if (count < employees.length) {
+			throw new IllegalArgumentException("В отделе свободно " + count + " мест");
+		}
 	}
 
 	public void addEmployee(Employee... newEmployee) {
-		if (this.employees == null)
-			this.employees = new Employee[1];
-		int countAddedEmployee = 0;
-		for (int k = 0; k < newEmployee.length; k++) {
-			for (int i = 0; i < this.employees.length; i++) {
-				if (this.employees[i] == null) {
-					this.employees[i] = newEmployee[k];
-					System.out.println("В отдел " + this.name + " добавлен сотрудник " + newEmployee[k].getName());
-					countAddedEmployee++;
-					break;
-				}
-				if (i == this.employees.length - 1 && this.employees[i] != null && this.employees.length < this.MAX) {
-					Employee[] newEmployees = new Employee[this.employees.length + 1];
-					System.arraycopy(this.employees, 0, newEmployees, 0, this.employees.length);
-					newEmployees[++i] = newEmployee[k];
-					this.employees = newEmployees;
-					System.out.println("В отдел " + this.name + " добавлен сотрудник " + newEmployee[k].getName());
-					countAddedEmployee++;
+		validateEmployees(newEmployee);
+		for (Employee employee : newEmployee) {
+			for (int i = 0; i < employees.length; i++) {
+				if (employees[i] == null) {
+					employees[i] = employee;
+					System.out.println("В отдел " + name + " добавлен сотрудник " + employee.getName());
 					break;
 				}
 			}
 		}
-		if (countAddedEmployee != newEmployee.length)
-			System.out.println("В этом отделе больше нет места. Сотрудник не добавлен");
 	}
 
 	public void delEmployeeByIndex(int index) {
+		if (!(index >= 0 && index < employees.length)){
+			System.out.println("Некорректный индекс");
+			return;
+		}
 		this.employees[index] = null;
 		System.out.println("Сотрудник с индексом: " + index + " удалён из отдела " + this.name);
 	}
 
-	public void delEmployee(Employee employee) {
-		for (int i = 0; i < this.employees.length; i++) {
-			if (this.employees[i] != null && this.employees[i].equals(employee)){
-				this.employees[i] = null;
+	public void delEmployee(Employee employeeForDel) {
+		if (employeeForDel == null)
+			return;
+		for (Employee employee : employees) {
+			if (employeeForDel.equals(employee)){
 				System.out.println("Сотрудник " + employee.getName() + " удалён из отдела " + this.name);
+				employee = null;
 				return;
 			}
 		}
-		System.out.println("Сотрудник с именем " + employee.getName() + " не состоит в отделе " + this.name);
+		System.out.println("Сотрудник с именем " + employeeForDel.getName() + " не состоит в отделе " + this.name);
 	}
 
 	public void delAllEmployees() {
@@ -74,7 +73,7 @@ public class Group {
 		for (int i = 0; i < this.employees.length; i++)
 			if (this.employees[i] != null) {
 				employeesCount++;
-				employeesInfo.append('\n').append(this.employees[i].getInfo());
+				employeesInfo.append('\n').append(this.employees[i].toString());
 			}
 		System.out.println("В отделе: " + this.name + ", состоит "
 				+ employeesCount + " сотрудник(а/ов): " + employeesInfo.toString());

@@ -2,21 +2,19 @@ package ru.geekbrains.homework03;
 
 public class Lesson03 {
 	public static void main(String[] args) {
-		Employee Oleg = new Employee("Олег", 24,
-				"e_oleg@email.ru", "p_Стажёр");
-		Oleg.info();
+		Employee oleg = new Employee("Олег", 24,
+				"oleg@email.ru", "Стажёр");
+		System.out.println(oleg.toString());
 		System.out.println("");
 
-		Employee[] developers = new Employee[2];
-		developers[0] = Oleg;
-		Employee Igor = new Employee("Игорь", 28, "p_Разработчик");
-		developers[1] = Igor;
-		Group backOffice = new Group("Бэк-офис", developers);
+		Employee igor = new Employee("Игорь", 28, "","Разработчик");
+		Group backOffice = new Group("Бэк-офис");
+		backOffice.addEmployee(oleg, igor);
 		backOffice.info();
 		System.out.println("");
 
-		Employee Ivan = new Employee("Иван", 30);
-		backOffice.addEmployee(Ivan);
+		Employee ivan = new Employee("Иван", 30, "", "");
+		backOffice.addEmployee(ivan);
 		backOffice.info();
 		System.out.println("");
 
@@ -25,11 +23,11 @@ public class Lesson03 {
 		System.out.println("");
 
 		Group frontOffice = new Group("Фронт-офис");
-		frontOffice.addEmployee(Oleg, Igor, Ivan);
-		frontOffice.delEmployee(Igor);
+		frontOffice.addEmployee(oleg, igor, ivan);
+		frontOffice.delEmployee(igor);
 		frontOffice.delEmployeeByIndex(1);
-		Employee Georg = new Employee("Георгий");
-		frontOffice.delEmployee(Georg);
+		Employee georg = new Employee("Георгий", 35, "", "");
+		frontOffice.delEmployee(georg);
 		frontOffice.info();
 	}
 }
