@@ -9,7 +9,8 @@ public class Employee {
 	private int age;
 	private String rank;
 
-	public Employee() {}
+	public Employee() {
+	}
 
 	@Override
 	public int hashCode() {
@@ -22,11 +23,10 @@ public class Employee {
 			return true;
 		if (obj == null || obj.getClass() != this.getClass())
 			return false;
-		Employee employee = (Employee)obj;
+		Employee employee = (Employee) obj;
 		return age == employee.age && (name != null && name.equals(employee.getName()))
 				&& (email != null && email.equals(employee.getEmail()))
 				&& (rank != null && rank.equals(employee.getRank()));
-
 	}
 
 	public Employee(String name, int age, String email, String rank) {

@@ -41,7 +41,7 @@ public class Group {
 	}
 
 	public void delEmployeeByIndex(int index) {
-		if (!(index >= 0 && index < employees.length)){
+		if (!(index >= 0 && index < employees.length)) {
 			System.out.println("Некорректный индекс");
 			return;
 		}
@@ -53,7 +53,7 @@ public class Group {
 		if (employeeForDel == null)
 			return;
 		for (Employee employee : employees) {
-			if (employeeForDel.equals(employee)){
+			if (employeeForDel.equals(employee)) {
 				System.out.println("Сотрудник " + employee.getName() + " удалён из отдела " + this.name);
 				employee = null;
 				return;

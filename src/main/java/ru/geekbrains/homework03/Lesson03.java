@@ -7,7 +7,7 @@ public class Lesson03 {
 		System.out.println(oleg.toString());
 		System.out.println("");
 
-		Employee igor = new Employee("Игорь", 28, "","Разработчик");
+		Employee igor = new Employee("Игорь", 28, "", "Разработчик");
 		Group backOffice = new Group("Бэк-офис");
 		backOffice.addEmployee(oleg, igor);
 		backOffice.info();
