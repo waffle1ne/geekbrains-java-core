@@ -10,24 +10,25 @@ public class Lesson03 {
 		Employee igor = new Employee("Игорь", 28, "", "Разработчик");
 		Group backOffice = new Group("Бэк-офис");
 		backOffice.addEmployee(oleg, igor);
-		backOffice.info();
+		System.out.println(backOffice.getInfo());
 		System.out.println("");
 
 		Employee ivan = new Employee("Иван", 30, "", "");
 		backOffice.addEmployee(ivan);
-		backOffice.info();
+		backOffice.delEmployee(ivan);
+		System.out.println(backOffice.getInfo());
 		System.out.println("");
 
 		backOffice.delAllEmployees();
-		backOffice.info();
+		System.out.println(backOffice.getInfo());
 		System.out.println("");
 
 		Group frontOffice = new Group("Фронт-офис");
 		frontOffice.addEmployee(oleg, igor, ivan);
 		frontOffice.delEmployee(igor);
-		frontOffice.delEmployeeByIndex(1);
+		frontOffice.delEmployeeByIndex(0);
 		Employee georg = new Employee("Георгий", 35, "", "");
 		frontOffice.delEmployee(georg);
-		frontOffice.info();
+		System.out.println(frontOffice.getInfo());
 	}
 }

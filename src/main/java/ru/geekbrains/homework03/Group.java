@@ -46,36 +46,36 @@ public class Group {
 			return;
 		}
 		this.employees[index] = null;
-		System.out.println("Сотрудник с индексом: " + index + " удалён из отдела " + this.name);
+		System.out.println("Сотрудник с индексом: " + index + " удалён из отдела " + name);
 	}
 
 	public void delEmployee(Employee employeeForDel) {
 		if (employeeForDel == null)
 			return;
-		for (Employee employee : employees) {
-			if (employeeForDel.equals(employee)) {
-				System.out.println("Сотрудник " + employee.getName() + " удалён из отдела " + this.name);
-				employee = null;
+		for (int i = 0; i < employees.length; i++) {
+			if (employeeForDel.equals(employees[i])) {
+				System.out.println("Сотрудник " + employees[i].getName() + " удалён из отдела " + name);
+				employees[i] = null;
 				return;
 			}
 		}
-		System.out.println("Сотрудник с именем " + employeeForDel.getName() + " не состоит в отделе " + this.name);
+		System.out.println("Сотрудник с именем " + employeeForDel.getName() + " не состоит в отделе " + name);
 	}
 
 	public void delAllEmployees() {
-		Arrays.fill(this.employees, null);
-		System.out.println("Все сотрудники удалены из отдела " + this.name);
+		Arrays.fill(employees, null);
+		System.out.println("Все сотрудники удалены из отдела " + name);
 	}
 
-	public void info() {
+	public String getInfo() {
 		int employeesCount = 0;
 		StringBuilder employeesInfo = new StringBuilder();
-		for (int i = 0; i < this.employees.length; i++)
-			if (this.employees[i] != null) {
+		for (Employee employee : employees)
+			if (employee != null) {
 				employeesCount++;
-				employeesInfo.append('\n').append(this.employees[i].toString());
+				employeesInfo.append('\n').append(employee.toString());
 			}
-		System.out.println("В отделе: " + this.name + ", состоит "
-				+ employeesCount + " сотрудник(а/ов): " + employeesInfo.toString());
+		return "В отделе: " + name + ", состоит "
+				+ employeesCount + " сотрудник(а/ов): " + employeesInfo.toString();
 	}
 }
