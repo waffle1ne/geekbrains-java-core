@@ -7,21 +7,12 @@ public class Participants {
 	int jump;
 	int run;
 
-	public Participants() {
-	}
-
-	public Participants(String name, int jump, int run) {
-		this.name = name;
-		this.jump = jump;
-		this.run = run;
-	}
-
 	public boolean jump(int height) {
-		return this.jump >= height && this.jump > 0;
+		return jump >= height && jump > 0;
 	}
 
 	public boolean run(int length) {
-		return this.run >= length && this.run > 0;
+		return run >= length && run > 0;
 	}
 
 	public void setName(String name) {

@@ -9,12 +9,12 @@ public class Lesson04 {
 				new Human("Лёха", 4, 20)};
 			for (Participants participant : participants) {
 				for (Obstacles obstacle : obstacles) {
-					if (participant.run(obstacle.length) && obstacle.length != 0)
-						System.out.println(participant.name + " пробежал препятствие " + obstacle.name);
-					else if (participant.jump(obstacle.height) && obstacle.height != 0)
-						System.out.println(participant.name + " перепрыгнул препятствие " + obstacle.name);
+					if (participant.run(obstacle.getLength()) && obstacle.getLength() != 0)
+						System.out.println(participant.getName() + " пробежал препятствие " + obstacle.getName());
+					else if (participant.jump(obstacle.getHeight()) && obstacle.getHeight() != 0)
+						System.out.println(participant.getName() + " перепрыгнул препятствие " + obstacle.getName());
 					else{
-						System.out.println(participant.name + " не преодолел препятствие " + obstacle.name);
+						System.out.println(participant.getName() + " не преодолел препятствие " + obstacle.getName());
 						break;
 					}
 				}

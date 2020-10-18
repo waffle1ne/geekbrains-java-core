@@ -7,15 +7,6 @@ public class Obstacles {
 	int height;
 	int length;
 
-	public Obstacles() {
-	}
-
-	public Obstacles(String name, int height, int length) {
-		this.name = name;
-		this.height = height;
-		this.length = length;
-	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -52,8 +43,8 @@ public class Obstacles {
 		if (obj == null || obj.getClass() != this.getClass())
 			return false;
 		Obstacles obstacle = (Obstacles) obj;
-		return height == obstacle.height
-				&& length == obstacle.length
+		return height == obstacle.getHeight()
+				&& length == obstacle.getLength()
 				&& (name != null && name.equals(obstacle.getName()));
 	}
 
