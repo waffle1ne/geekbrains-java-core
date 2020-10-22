@@ -1,9 +1,13 @@
 package ru.geekbrains.homework04;
 
 public class Treadmill implements Obstacle {
-	private static final int LENGTH = 11;
+	private final int distance;
 
-	public int getLength() {
-		return LENGTH;
+	public Treadmill(int distance) {
+		this.distance = distance;
+	}
+
+	public int getDistance() {
+		return distance;
 	}
 }
