@@ -19,19 +19,4 @@ public class Phonebook {
 			}
 		}
 	}
-
-	public static void main(String[] args) {
-		Phonebook phonebook = new Phonebook();
-		phonebook.add("Ivanov", "+79150000001");
-		phonebook.add("Petrov", "+79160000010");
-		phonebook.add("Ivanov", "+79990000011");
-		phonebook.add("Smith", "+79770000100");
-		phonebook.add("Smith", "+79770000101");
-		phonebook.add("Smith", "+79770000110");
-		phonebook.get("Ivanov");
-		System.out.println();
-		phonebook.get("Petrov");
-		System.out.println();
-		phonebook.get("Smith");
-	}
 }
