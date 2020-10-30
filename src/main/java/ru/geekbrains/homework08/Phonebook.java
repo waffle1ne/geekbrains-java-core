@@ -1,22 +1,21 @@
 package ru.geekbrains.homework08;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Phonebook {
-	ArrayList<List> phonebook = new ArrayList<>();
+	HashMap<String, List<String>> phonebook = new HashMap<>();
 
 	public void add(String surname, String phoneNumber) {
-		List<String> contact = new ArrayList<>(Arrays.asList(surname, phoneNumber));
-		phonebook.add(contact);
+		List<String> value;
+		if (phonebook.containsKey(surname))
+			value = phonebook.get(surname);
+		else
+			value = new ArrayList<>();
+		value.add(phoneNumber);
+		phonebook.put(surname, value);
 	}
 
 	public void get(String surname) {
-		for (List<String> contact : phonebook) {
-			if (contact.contains(surname)){
-				System.out.println(contact.toArray()[1]);
-			}
-		}
+		System.out.println(phonebook.get(surname));
 	}
 }
