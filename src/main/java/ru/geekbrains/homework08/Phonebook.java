@@ -3,7 +3,7 @@ package ru.geekbrains.homework08;
 import java.util.*;
 
 public class Phonebook {
-	HashMap<String, List<String>> phonebook = new HashMap<>();
+	Map<String, List<String>> phonebook = new HashMap<>();
 
 	public void add(String surname, String phoneNumber) {
 		List<String> value;

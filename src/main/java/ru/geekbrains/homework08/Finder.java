@@ -4,7 +4,7 @@ import java.util.*;
 
 public abstract class Finder {
 	public static void wordFinder(String[] arr) {
-		HashMap<String, Integer> wordsMap = new HashMap<>();
+		Map<String, Integer> wordsMap = new HashMap<>();
 		for (String word : arr) {
 			if (wordsMap.containsKey(word))
 				wordsMap.put(word, (wordsMap.get(word) + 1));
