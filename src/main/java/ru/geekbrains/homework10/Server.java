@@ -28,12 +28,4 @@ public class Server {
             out.writeUTF("Вы: " + str + "\n" + "Эхо: " + str);
         }
     }
-
-//    public static void main(String[] args) {
-//        try {
-//            Server server = new Server(8189);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }

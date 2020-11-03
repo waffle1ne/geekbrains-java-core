@@ -1,7 +1,5 @@
 package ru.geekbrains.homework10;
 
-import okhttp3.OkHttpClient;
-
 import javax.swing.*;
 import java.io.IOException;
 

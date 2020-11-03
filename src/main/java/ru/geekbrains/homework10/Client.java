@@ -136,13 +136,4 @@ public class Client extends JFrame {
         setVisible(true);
         chatArea.append("Добро пожаловать в комнату с Эхо!\nОтправляй сообщения и Эхо тебе ответит ;-)\n\n");
     }
-
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                new Client();
-//            }
-//        });
-//    }
 }
