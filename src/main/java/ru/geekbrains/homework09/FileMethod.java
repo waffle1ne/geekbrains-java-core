@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -55,7 +54,5 @@ public class FileMethod {
         }
         System.out.println("Папка " + String.valueOf(path.getFileName()) + " удалена");
         path.toFile().delete();
-//        System.out.println("Папка " + String.valueOf(path.getFileName()) + " удалена");
-//        path.toFile().delete();
     }
 }

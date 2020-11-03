@@ -1,7 +1,6 @@
 package ru.geekbrains.homework09;
 
 import java.io.IOException;
-import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Paths;
 
 public class Lesson09 {
