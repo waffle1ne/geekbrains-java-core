@@ -35,7 +35,7 @@ public class FileMethod {
                 if (!file.isDirectory()) {
                     try (BufferedReader reader = Files.newBufferedReader(file.toPath(), StandardCharsets.UTF_8)) {
                         while (reader.ready())
-                            writer.write(reader.readLine() + "\n");
+                            writer.write(reader.read());
                     }
                 }
             }
