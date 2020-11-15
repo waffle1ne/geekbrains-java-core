@@ -3,6 +3,7 @@ package ru.geekbrains.homework11.homework;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.function.Consumer;
 
 public class TestRepository {
 
@@ -13,17 +14,11 @@ public class TestRepository {
 
 		Repository<User> userRepository = new Repository<>(User.class, connection);
 
-		userRepository.insert(new User(null, "ccc", "ccc"));
-		userRepository.insert(new User(null, "ddd", "ddd"));
-		userRepository.insert(new User(null, "ddd", "ddd"));
+//		userRepository.insert(new User(null, "ccc", "ccc"));
+//		userRepository.insert(new User(null, "ddd", "ddd"));
+//		userRepository.insert(new User(null, "ddb", "ddd"));
+//		userRepository.insert(new User(null, "nnn", "nnn"));
 
-		User user = userRepository.findById(1L);
-		System.out.println(user);
-
-		user = userRepository.findById(2L);
-		System.out.println(user);
-
-
+		userRepository.findAll().forEach(System.out::println);
 	}
-
 }

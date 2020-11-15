@@ -63,11 +63,11 @@ public class Repository<T> {
 				ColumnInfo columnInfo = new ColumnInfo(field.getName(), dbColumn.columnName(), field.getType(), false);
 				columns.add(columnInfo);
 			}
-			if (idCount == 0) {
-				throw new IllegalStateException("Field DbId not found");
-			} else if (idCount > 1) {
-				throw new IllegalStateException("Field DbId more than one");
-			}
+		}
+		if (idCount == 0) {
+			throw new IllegalStateException("Field DbId not found");
+		} else if (idCount > 1) {
+			throw new IllegalStateException("Field DbId more than one");
 		}
 		createTableIfNotExists();
 
